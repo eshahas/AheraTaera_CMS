@@ -20,7 +20,7 @@ namespace AheraTaera_CMS
             product = productID;
 //            MessageBox.Show(productID);
             string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
-            string sql = "SELECT FName, LName, Email, Password FROM customers WHERE CustomerID='" + productID + "'";
+            string sql = "SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products WHERE ProductID='" + productID + "'";
 
 //                      MessageBox.Show(sql);
 
@@ -36,8 +36,11 @@ namespace AheraTaera_CMS
                 {
                     rdr.Read();
 
+                    ProductIDLabel.Text = rdr[0].ToString();
                     ProductNameLabel.Text = rdr[1].ToString();
                     ProductDescriptionLabel.Text = rdr[2].ToString();
+                    PriceLabel.Text = rdr[3].ToString(); // + "NZD";
+                    CategoryLabel.Text = rdr[4].ToString();
                 }
                 else
                 {
@@ -77,13 +80,43 @@ namespace AheraTaera_CMS
 
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+    /*
+            MessageBox.Show(QtyTextBox.Text);
+            MessageBox.Show(PriceLabel.Text);
+
+            float total = Int32.Parse(QtyTextBox.Text) * Int32.Parse(PriceLabel.Text);
+            TotalLabel.Text = total.ToString("0");
+      */
+            }
+
+        private void K(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void QtyTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             // allows only numbers
             if (!char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
             }
+/*
+            MessageBox.Show(QtyTextBox.Text);
+            MessageBox.Show(PriceLabel.Text);
+
+            float total = Int32.Parse(QtyTextBox.Text) * Int32.Parse(PriceLabel.Text);
+            TotalLabel.Text = total.ToString("0");
+  */
         }
+  
     }
 }

@@ -192,6 +192,7 @@ namespace AheraTaera_CMS
             this.maskedTextBox2.Size = new System.Drawing.Size(35, 34);
             this.maskedTextBox2.TabIndex = 16;
             this.maskedTextBox2.ValidatingType = typeof(int);
+            this.maskedTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected);
             // 
             // AddtoCart
             // 

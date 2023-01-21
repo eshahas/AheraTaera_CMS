@@ -16,7 +16,8 @@ namespace AheraTaera_CMS
 
         public ProductList()
         {
-            string sql = "SELECT CustomerID, LName, DoB, Phone, Email FROM customers";
+           // string sql = "SELECT CustomerID, LName, DoB, Phone, Email FROM customers";
+            string sql = "SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products";
 
             string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
 
@@ -31,7 +32,7 @@ namespace AheraTaera_CMS
 
                 while (rdr.Read())
                 {
-                    string[] product = new string[] { rdr.GetString("CustomerID"), rdr.GetString("LName"), rdr.GetString("DoB"), rdr.GetString("Phone"), rdr.GetString("Email") };
+                    string[] product = new string[] { rdr.GetString("ProductID"), rdr.GetString("ProductName"), rdr.GetString("ProductDescription"), rdr.GetString("Price"), rdr.GetString("ProductCategory") };
                     productList.Add(product);
                   //  MessageBox.Show(product[0]);
                 }
