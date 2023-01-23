@@ -17,6 +17,7 @@ namespace AheraTaera_CMS
 {
     public partial class Login : Form
     {
+        private string customerID;
         public Login()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace AheraTaera_CMS
         {
 
             string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
-            string sql = "SELECT FName, LName, Email, Password FROM customers WHERE Email='" + userTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'";
+            string sql = "SELECT CustomerID, FName, LName, Email, Password FROM customers WHERE Email='" + userTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'";
 
 //            MessageBox.Show(connectionString);
 //            MessageBox.Show(sql);
@@ -42,12 +43,12 @@ namespace AheraTaera_CMS
                 if (rdr.HasRows)
                 {
                     rdr.Read();
-
-                    string username = rdr[0].ToString() + " " + rdr[1].ToString();
+                    customerID = rdr[0].ToString();
+                    string username = rdr[1].ToString() + " " + rdr[2].ToString();
 
                     this.Hide();
 
-                    ViewProduct form = new ViewProduct(username);
+                    ViewProduct form = new ViewProduct(customerID, username);
                     form.Show();
                 }
                 else

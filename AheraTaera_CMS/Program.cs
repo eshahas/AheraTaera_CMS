@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace AheraTaera_CMS
 {
+
     static class Program
     {
         /// <summary>

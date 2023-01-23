@@ -42,6 +42,7 @@ namespace AheraTaera_CMS
             this.CheckoutButton = new System.Windows.Forms.Button();
             this.ShoppingCardButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DashboardButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@ namespace AheraTaera_CMS
             // 
             this.LogoutBotton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LogoutBotton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.LogoutBotton.Location = new System.Drawing.Point(26, 683);
+            this.LogoutBotton.Location = new System.Drawing.Point(26, 696);
             this.LogoutBotton.Name = "LogoutBotton";
             this.LogoutBotton.Size = new System.Drawing.Size(134, 54);
             this.LogoutBotton.TabIndex = 1;
@@ -85,6 +86,26 @@ namespace AheraTaera_CMS
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Product";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Description";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Price (NZD)";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Category";
+            // 
             // AddtoCartButton
             // 
             this.AddtoCartButton.BackColor = System.Drawing.Color.DodgerBlue;
@@ -103,13 +124,13 @@ namespace AheraTaera_CMS
             this.CheckoutButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.CheckoutButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CheckoutButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.CheckoutButton.Location = new System.Drawing.Point(26, 558);
+            this.CheckoutButton.Location = new System.Drawing.Point(26, 517);
             this.CheckoutButton.Name = "CheckoutButton";
             this.CheckoutButton.Size = new System.Drawing.Size(235, 54);
             this.CheckoutButton.TabIndex = 5;
             this.CheckoutButton.Text = "Check Out ";
             this.CheckoutButton.UseVisualStyleBackColor = false;
-            this.CheckoutButton.Click += new System.EventHandler(this.CheckoutButton_Click);
+         //   this.CheckoutButton.Click += new System.EventHandler(this.CheckoutButton_Click);
             // 
             // ShoppingCardButton
             // 
@@ -134,11 +155,24 @@ namespace AheraTaera_CMS
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // DashboardButton
+            // 
+            this.DashboardButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DashboardButton.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.DashboardButton.Location = new System.Drawing.Point(26, 633);
+            this.DashboardButton.Name = "DashboardButton";
+            this.DashboardButton.Size = new System.Drawing.Size(134, 57);
+            this.DashboardButton.TabIndex = 8;
+            this.DashboardButton.Text = "Dashboard";
+            this.DashboardButton.UseVisualStyleBackColor = true;
+            this.DashboardButton.Click += new System.EventHandler(this.DashboardButton_Click);
+            // 
             // ViewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 824);
+            this.Controls.Add(this.DashboardButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ShoppingCardButton);
             this.Controls.Add(this.CheckoutButton);
@@ -169,5 +203,6 @@ namespace AheraTaera_CMS
         private System.Windows.Forms.Button CheckoutButton;
         private System.Windows.Forms.Button ShoppingCardButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button DashboardButton;
     }
 }

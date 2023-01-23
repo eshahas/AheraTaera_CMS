@@ -11,17 +11,22 @@ namespace AheraTaera_CMS
     public partial class ViewProduct : Form
     {
         private string username;
+        private string product;
+        private string customerID;
         private List<string[]> productList;
-        public ViewProduct(string loginName)
+        public ViewProduct(string customer, string loginName)
         {
             InitializeComponent();
             userLabel.Text = "Welcome " + loginName;
 
             username = loginName;
+            customerID = customer;
 
             listView1.GridLines = true;
             listView1.View = View.Details;
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listView1.AutoResizeColumns( ColumnHeaderAutoResizeStyle.HeaderSize);
+            //listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
             productList = new ProductList().getProductList();
             listView1.BeginUpdate();
             foreach (string[] product in productList)
@@ -57,7 +62,8 @@ namespace AheraTaera_CMS
             //this.Hide();
             if (listView1.SelectedItems.Count > 0)
             {
-                AddtoCart form = new AddtoCart(listView1.SelectedItems[0].Text);
+                product = listView1.SelectedItems[0].Text;
+                AddtoCart form = new AddtoCart(product);
                 form.Show();
             }
             else
@@ -69,17 +75,24 @@ namespace AheraTaera_CMS
 
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           // this.Hide();
 
-            Checkout form = new Checkout();
-            form.Show();
+            //Checkout form = new Checkout(username);
+            //form.Show();
         }
 
         private void ShoppingCardButton_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            ShoppingCard form = new ShoppingCard(username);
+            ShoppingCard form = new ShoppingCard(customerID, username, product, AddtoCart.Qty);
+            form.Show();
+        }
+
+        private void DashboardButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard form = new Dashboard(customerID, username);
             form.Show();
         }
     }

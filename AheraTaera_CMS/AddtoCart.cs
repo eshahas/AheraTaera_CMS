@@ -13,11 +13,15 @@ namespace AheraTaera_CMS
     public partial class AddtoCart : Form
     {
         //private string username;
-        private string product; 
-        public AddtoCart(string productID)
+        private string productID;
+        public static int Qty;
+        private string productName;
+
+        public static List<string[]> shoppingList = new List<string[]>();
+        public AddtoCart(string product)
         {
             InitializeComponent();
-            product = productID;
+            productID = product;
 //            MessageBox.Show(productID);
             string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
             string sql = "SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products WHERE ProductID='" + productID + "'";
@@ -35,6 +39,8 @@ namespace AheraTaera_CMS
                 if (rdr.HasRows)
                 {
                     rdr.Read();
+
+                    productName = rdr[1].ToString();
 
                     ProductIDLabel.Text = rdr[0].ToString();
                     ProductNameLabel.Text = rdr[1].ToString();
@@ -57,14 +63,27 @@ namespace AheraTaera_CMS
 
         }
 
+
         private void AdditemButton_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show("Product successfully added to the cart...");
-            this.Hide();
+            if (ProductQtyTextBox.Text.Length > 0) {
+                    float price = Single.Parse(PriceLabel.Text);
+                    Qty = Int32.Parse(ProductQtyTextBox.Text);
 
-           // ViewProduct form = new ViewProduct(username);
-           // form.Show();
+                    float total = Qty * price;
+                    TotalPriceLabel.Text = total.ToString("0.00");
+                    MessageBox.Show("Product successfully added to the cart...");
+
+                    string[] product = new string[] { productID, productName, PriceLabel.Text, ProductQtyTextBox.Text };
+                    shoppingList.Add(product);
+
+                    this.Hide();
+            }
+             else
+            {
+                MessageBox.Show("Qty field could not be left blank!");
+            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -75,6 +94,17 @@ namespace AheraTaera_CMS
            // form.Show();
         }
 
+        private void ProductQtyTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // allows only numbers
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -83,13 +113,7 @@ namespace AheraTaera_CMS
 
         private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-    /*
-            MessageBox.Show(QtyTextBox.Text);
-            MessageBox.Show(PriceLabel.Text);
 
-            float total = Int32.Parse(QtyTextBox.Text) * Int32.Parse(PriceLabel.Text);
-            TotalLabel.Text = total.ToString("0");
-      */
             }
 
         private void K(object sender, EventArgs e)
@@ -109,14 +133,17 @@ namespace AheraTaera_CMS
             {
                 e.Handled = true;
             }
-/*
-            MessageBox.Show(QtyTextBox.Text);
-            MessageBox.Show(PriceLabel.Text);
 
-            float total = Int32.Parse(QtyTextBox.Text) * Int32.Parse(PriceLabel.Text);
-            TotalLabel.Text = total.ToString("0");
-  */
         }
-  
+
+        private void c(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
