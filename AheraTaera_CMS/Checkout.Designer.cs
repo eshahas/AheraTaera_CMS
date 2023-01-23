@@ -74,7 +74,7 @@ namespace AheraTaera_CMS
             this.LogoutButton.Name = "LogoutButton";
             this.LogoutButton.Size = new System.Drawing.Size(169, 56);
             this.LogoutButton.TabIndex = 2;
-            this.LogoutButton.Text = "Logout";
+            this.LogoutButton.Text = "Cancel";
             this.LogoutButton.UseVisualStyleBackColor = true;
             this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 

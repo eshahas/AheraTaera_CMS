@@ -37,24 +37,9 @@ namespace AheraTaera_CMS
             listView1.EndUpdate();
         }
 
-        private void ViewProduct_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void LogoutBotton_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userLabel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void AddtoCartButton_Click(object sender, EventArgs e)

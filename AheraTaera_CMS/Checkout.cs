@@ -44,6 +44,8 @@ namespace AheraTaera_CMS
         private void PaymentButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Congradulations, Payment successfully Done!");
+
+            Application.Exit();
         }
 
         private void DiscountButton_Click(object sender, EventArgs e)
