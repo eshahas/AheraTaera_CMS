@@ -27,7 +27,7 @@ namespace AheraTaera_CMS
             string CustomerID = "1";
             int i = 1;
 
-            Customers customer = new Customers();
+            Customer customer = new Customer();
             customer.FirstName = FNameTextBox.Text;
             customer.LastName = LNameTextBox.Text;
             customer.Email = EmailTextBox.Text;

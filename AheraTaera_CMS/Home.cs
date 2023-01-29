@@ -8,13 +8,13 @@ using System.Windows.Forms;
 
 namespace AheraTaera_CMS
 {
-    public partial class ViewProduct : Form
+    public partial class Home : Form
     {
         private string username;
         private string product;
         private string customerID;
-        private List<string[]> productList;
-        public ViewProduct(string customer, string loginName)
+
+        public Home(string customer, string loginName)
         {
             InitializeComponent();
             userLabel.Text = "Welcome " + loginName;
@@ -22,19 +22,8 @@ namespace AheraTaera_CMS
             username = loginName;
             customerID = customer;
 
-            listView1.GridLines = true;
-            listView1.View = View.Details;
-            listView1.AutoResizeColumns( ColumnHeaderAutoResizeStyle.HeaderSize);
-            //listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            dataGridView1.DataSource = new ProductList().getProductList();
 
-            productList = new ProductList().getProductList();
-            listView1.BeginUpdate();
-            foreach (string[] product in productList)
-            {
-                ListViewItem item = new ListViewItem(product);
-                listView1.Items.Add(item);
-            }
-            listView1.EndUpdate();
         }
 
         private void LogoutBotton_Click(object sender, EventArgs e)
@@ -44,10 +33,15 @@ namespace AheraTaera_CMS
 
         private void AddtoCartButton_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            if (listView1.SelectedItems.Count > 0)
+
+          //  if (listView1.SelectedItems.Count > 0)
+             if(dataGridView1.SelectedRows.Count > 0)
             {
-                product = listView1.SelectedItems[0].Text;
+ //                product = listView1.SelectedItems[0].Text;
+
+                DataGridViewRow selctedRow = dataGridView1.SelectedRows[0];
+                product = selctedRow.Cells[0].Value.ToString();
+
                 AddtoCart form = new AddtoCart(product);
                 form.Show();
             }

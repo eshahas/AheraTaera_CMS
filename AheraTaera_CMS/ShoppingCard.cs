@@ -13,29 +13,14 @@ namespace AheraTaera_CMS
         private string username;
         private string customer;
         private float totalprice;
-        //private string[] product;
+
         public ShoppingCard(string customerID, string user, string product, int qty)
         {
             InitializeComponent();
             customer = customerID;
             username = user;
 
-        //    MessageBox.Show("Qty : " + customer + "   " + product + "  " + qty.ToString() );
-
-
-            ShoppingListView.GridLines = true;
-            ShoppingListView.View = View.Details;
-            ShoppingListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-           // productList = new ProductList().getProductList();
-            ShoppingListView.BeginUpdate();
-
-
-            foreach (string[] record in AddtoCart.shoppingList)
-            {
-                ListViewItem item = new ListViewItem(record);
-                ShoppingListView.Items.Add(item);
-            }
-            ShoppingListView.EndUpdate();
+            dataGridView1.DataSource =  AddtoCart.shoppingList;
 
             totalPriceUpdate();
         }
@@ -52,7 +37,7 @@ namespace AheraTaera_CMS
         {
             this.Hide();
 
-            ViewProduct form = new ViewProduct(customer, username);
+            Home form = new Home(customer, username);
             form.Show();
         }
 
@@ -67,30 +52,37 @@ namespace AheraTaera_CMS
             int index = 0;
             float price;
             int quantity;
-            foreach (string[] record in AddtoCart.shoppingList)
-            {
 
-                price = float.Parse(AddtoCart.shoppingList[index][2]);
-                quantity = Int32.Parse(AddtoCart.shoppingList[index][3]);
+
+            foreach (ProductItem item in AddtoCart.shoppingList)
+            {
+                price = float.Parse(item.unitPrice);
+                quantity = Int32.Parse(item.ProductQty);
+
                 total += price * quantity;
 
                 index++;
             }
+  
             TotalLabel.Text = total.ToString();
             totalprice = total;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-     
-            int recordNo = ShoppingListView.SelectedItems.Count;
-         //   MessageBox.Show("RecordNo = " + AddtoCart.shoppingList.Count.ToString());
+
+
+            int recordNo = dataGridView1.SelectedRows.Count;
+
+
             if (recordNo > 0 && AddtoCart.shoppingList.Count>1)
             {
-                AddtoCart.shoppingList.RemoveAt(recordNo);
-                ShoppingListView.Items.RemoveAt(recordNo);
 
-                totalPriceUpdate();
+                AddtoCart.shoppingList.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                dataGridView1.DataSource = null;
+                 dataGridView1.DataSource = AddtoCart.shoppingList;
+
+                 totalPriceUpdate();
             }
             else
             {

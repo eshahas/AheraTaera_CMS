@@ -6,8 +6,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-//using System.Data;
-//using System.Data.SqlClient;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -29,9 +27,6 @@ namespace AheraTaera_CMS
             string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
             string sql = "SELECT CustomerID, FName, LName, Email, Password FROM customers WHERE Email='" + userTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'";
 
-//            MessageBox.Show(connectionString);
-//            MessageBox.Show(sql);
-
             try
             {
                 MySqlConnection con = new MySqlConnection(connectionString);
@@ -48,7 +43,7 @@ namespace AheraTaera_CMS
 
                     this.Hide();
 
-                    ViewProduct form = new ViewProduct(customerID, username);
+                    Home form = new Home(customerID, username);
                     form.Show();
                 }
                 else
@@ -63,12 +58,6 @@ namespace AheraTaera_CMS
             {
                 MessageBox.Show("error:\n" + ex.ToString());
             }
-
-
-
-
-
-
 
         }
 
@@ -85,14 +74,5 @@ namespace AheraTaera_CMS
             Application.Exit();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

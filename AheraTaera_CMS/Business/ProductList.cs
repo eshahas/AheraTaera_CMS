@@ -11,12 +11,12 @@ namespace AheraTaera_CMS
 {
     class ProductList
     {
-        private List<string[]> productList = new List<string[]>();
+        private List<Business.Product> productList = new List<Business.Product>();
 
 
         public ProductList()
         {
-           // string sql = "SELECT CustomerID, LName, DoB, Phone, Email FROM customers";
+
             string sql = "SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products";
 
             string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
@@ -32,9 +32,14 @@ namespace AheraTaera_CMS
 
                 while (rdr.Read())
                 {
-                    string[] product = new string[] { rdr.GetString("ProductID"), rdr.GetString("ProductName"), rdr.GetString("ProductDescription"), rdr.GetString("Price"), rdr.GetString("ProductCategory") };
-                    productList.Add(product);
-                  //  MessageBox.Show(product[0]);
+                    productList.Add(new Business.Product
+                    {
+                        ProductID = rdr.GetString("ProductID"),
+                        ProductName = rdr.GetString("ProductName"),
+                        ProductDescription = rdr.GetString("ProductDescription"),
+                        unitPrice = rdr.GetString("Price"),
+                        ProductCategory = rdr.GetString("ProductCategory")
+                    }); ;
                 }
                 rdr.Close();
                 con.Close();
@@ -47,7 +52,7 @@ namespace AheraTaera_CMS
             }
         }
 
-        public List<string[]> getProductList()
+        public List<Business.Product> getProductList()
         {
             return productList;
         }

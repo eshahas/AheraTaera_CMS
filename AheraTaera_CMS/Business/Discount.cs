@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AheraTaera_CMS
 {
-    public class Utility
+    public class Discount
     {
-        public Utility()
+        public Discount()
         {
         }
 

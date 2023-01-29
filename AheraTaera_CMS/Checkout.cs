@@ -50,7 +50,7 @@ namespace AheraTaera_CMS
 
         private void DiscountButton_Click(object sender, EventArgs e)
         {
-            Utility uti = new Utility();
+            Discount uti = new Discount();
 
 
             double discountvalue = price * uti.GetDiscount(72, "Auckland", WeekendDeliveryCheckBox.Checked) / 100;

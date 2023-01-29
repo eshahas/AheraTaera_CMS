@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AheraTaera_CMS
 {
-    class Customers
+    class Customer
     {
         public string CustomerID;
         public string FirstName;

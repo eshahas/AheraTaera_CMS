@@ -17,7 +17,9 @@ namespace AheraTaera_CMS
         public static int Qty;
         private string productName;
 
-        public static List<string[]> shoppingList = new List<string[]>();
+
+        public static List<ProductItem> shoppingList = new List<ProductItem>();
+ //       public static List<string[]> shoppingList = new List<string[]>();
         public AddtoCart(string product)
         {
             InitializeComponent();
@@ -75,8 +77,19 @@ namespace AheraTaera_CMS
                     TotalPriceLabel.Text = total.ToString("0.00");
                     MessageBox.Show("Product successfully added to the cart...");
 
-                    string[] product = new string[] { productID, productName, PriceLabel.Text, ProductQtyTextBox.Text };
-                    shoppingList.Add(product);
+                 //   string[] product = new string[] { productID, productName, PriceLabel.Text, ProductQtyTextBox.Text };
+                //shoppingList.Add(product);                  
+
+                shoppingList.Add(new ProductItem
+                    {
+                        
+                        ProductID = productID,
+                        ProductName = productName,
+                        
+                        unitPrice = PriceLabel.Text,
+                        ProductQty = ProductQtyTextBox.Text
+                    }); 
+
 
                     this.Hide();
             }

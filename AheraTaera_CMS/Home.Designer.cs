@@ -1,7 +1,7 @@
 ﻿
 namespace AheraTaera_CMS
 {
-    partial class ViewProduct
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -29,20 +29,16 @@ namespace AheraTaera_CMS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewProduct));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.userLabel = new System.Windows.Forms.Label();
             this.LogoutBotton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.AddtoCartButton = new System.Windows.Forms.Button();
             this.ShoppingCardButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DashboardButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // userLabel
@@ -66,42 +62,6 @@ namespace AheraTaera_CMS
             this.LogoutBotton.Text = "Logout";
             this.LogoutBotton.UseVisualStyleBackColor = true;
             this.LogoutBotton.Click += new System.EventHandler(this.LogoutBotton_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(321, 23);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(929, 753);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Product";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Description";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Price (NZD)";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Category";
             // 
             // AddtoCartButton
             // 
@@ -151,21 +111,34 @@ namespace AheraTaera_CMS
             this.DashboardButton.UseVisualStyleBackColor = true;
             this.DashboardButton.Click += new System.EventHandler(this.DashboardButton_Click);
             // 
-            // ViewProduct
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(314, 56);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 33;
+            this.dataGridView1.Size = new System.Drawing.Size(827, 658);
+            this.dataGridView1.TabIndex = 9;
+            // 
+            // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 824);
+            this.ClientSize = new System.Drawing.Size(1190, 819);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.DashboardButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ShoppingCardButton);
             this.Controls.Add(this.AddtoCartButton);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.LogoutBotton);
             this.Controls.Add(this.userLabel);
-            this.Name = "ViewProduct";
+            this.Name = "Home";
             this.Text = "ViewProduct";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,15 +148,10 @@ namespace AheraTaera_CMS
 
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Button LogoutBotton;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button AddtoCartButton;
         private System.Windows.Forms.Button ShoppingCardButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button DashboardButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

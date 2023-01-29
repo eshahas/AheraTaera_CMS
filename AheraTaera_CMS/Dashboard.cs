@@ -25,7 +25,7 @@ namespace AheraTaera_CMS
         {
             this.Hide();
 
-            ViewProduct form = new ViewProduct(customer, username);
+            Home form = new Home(customer, username);
             form.Show();
         }
     }

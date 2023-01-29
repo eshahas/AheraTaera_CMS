@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AheraTaera_CMS;
 
+
 namespace TestProject
 {
     [TestClass]
@@ -9,7 +10,7 @@ namespace TestProject
         [TestMethod]
         public void TestMethod1()
         {
-            Utility bm = new Utility();
+            Discount bm = new Discount();
             int age = 70;
             string city = "Auckland";
             bool weekenddelivery = true;
@@ -21,7 +22,7 @@ namespace TestProject
         [TestMethod]
         public void TestMethod2()
         {
-            Utility bm = new Utility();
+            Discount bm = new Discount();
             int age = 25;
             string city = "Christchurch";
             bool weekenddelivery = false;
@@ -33,7 +34,7 @@ namespace TestProject
         [TestMethod]
         public void TestMethod3()
         {
-            Utility bm = new Utility();
+            Discount bm = new Discount();
             int age = 78;
             string city = "Christchurch";
             bool weekenddelivery = false;

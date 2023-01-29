@@ -31,14 +31,11 @@ namespace AheraTaera_CMS
         {
             this.ViewProductButton = new System.Windows.Forms.Button();
             this.CheckoutButton = new System.Windows.Forms.Button();
-            this.ShoppingListView = new System.Windows.Forms.ListView();
-            this.ID = new System.Windows.Forms.ColumnHeader();
-            this.Name = new System.Windows.Forms.ColumnHeader();
-            this.Qty = new System.Windows.Forms.ColumnHeader();
-            this.UnitPrice = new System.Windows.Forms.ColumnHeader();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ViewProductButton
@@ -66,38 +63,6 @@ namespace AheraTaera_CMS
             this.CheckoutButton.Text = "Checkout";
             this.CheckoutButton.UseVisualStyleBackColor = false;
             this.CheckoutButton.Click += new System.EventHandler(this.CheckoutButton_Click);
-            // 
-            // ShoppingListView
-            // 
-            this.ShoppingListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.Name,
-            this.Qty,
-            this.UnitPrice});
-            this.ShoppingListView.FullRowSelect = true;
-            this.ShoppingListView.HideSelection = false;
-            this.ShoppingListView.Location = new System.Drawing.Point(69, 54);
-            this.ShoppingListView.Name = "ShoppingListView";
-            this.ShoppingListView.Size = new System.Drawing.Size(633, 305);
-            this.ShoppingListView.TabIndex = 2;
-            this.ShoppingListView.UseCompatibleStateImageBehavior = false;
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            // 
-            // Name
-            // 
-            this.Name.Text = "Name";
-            this.Name.Width = 120;
-            // 
-            // Qty
-            // 
-            this.Qty.Text = "Qty";
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.Text = "Unit Price (NZD)";
             // 
             // DeleteButton
             // 
@@ -131,20 +96,33 @@ namespace AheraTaera_CMS
             this.label1.TabIndex = 5;
             this.label1.Text = "Total ( NZD )";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(34, 56);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 33;
+            this.dataGridView1.Size = new System.Drawing.Size(706, 327);
+            this.dataGridView1.TabIndex = 6;
+            // 
             // ShoppingCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 617);
+            this.ClientSize = new System.Drawing.Size(790, 612);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.ShoppingListView);
             this.Controls.Add(this.CheckoutButton);
             this.Controls.Add(this.ViewProductButton);
-         //   this.Name = "ShoppingCard";
+            this.Name = "ShoppingCard";
             this.Text = "ShoppingCard";
             this.Load += new System.EventHandler(this.ShoppingCard_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,13 +132,9 @@ namespace AheraTaera_CMS
 
         private System.Windows.Forms.Button ViewProductButton;
         private System.Windows.Forms.Button CheckoutButton;
-        private System.Windows.Forms.ListView ShoppingListView;
-        private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.ColumnHeader Name;
-        private System.Windows.Forms.ColumnHeader Qty;
-        private System.Windows.Forms.ColumnHeader UnitPrice;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
