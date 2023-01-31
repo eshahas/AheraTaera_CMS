@@ -36,7 +36,6 @@ namespace AheraTaera_CMS
 
                 newCustomer new_customer = new newCustomer();
 
-
                 if (new_customer.Register(CustomerID,
                                              FNameTextBox.Text,
                                              LNameTextBox.Text,
@@ -49,44 +48,6 @@ namespace AheraTaera_CMS
                                              PasswordTextBox.Text))
 
                 {
-
-
-
-
-                    //*********************************************************************************
-                    /*                
-                                    DBReader = Business.Singleton.GetInstance;
-
-                                    string sql = "SELECT COUNT(*) FROM customers";
-                                    MySqlDataReader rdr = DBReader.SQLReaderOpen(sql);
-
-                                        if (rdr.HasRows)
-                                        {
-                                            rdr.Read();
-                                            i = Int32.Parse(rdr[0].ToString()) +1;      
-                                        }
-
-                                    DBReader.SQLReaderClose();
-
-                                    CustomerID = i.ToString();
-
-                                     sql = String.Format("INSERT INTO customers VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}', '{9}')",  
-                                                                 CustomerID,
-                                                                 FNameTextBox.Text,
-                                                                 LNameTextBox.Text,
-                                                                 DoBMaskedBox.Text,
-                                                                 PhoneMaskedBox.Text,
-                                                                 EmailTextBox.Text,
-                                                                 AddLine1TextBox.Text,
-                                                                 AddLine2TextBox.Text,
-                                                                 CityTextBox.Text,
-                                                                 PasswordTextBox.Text);
-
-
-                                    DBReader.SQLQuery(sql);
-                     */
-                    //*********************************************************************************
-
                     MessageBox.Show("Congradulations, Account created succsessfully...");
 
                     this.Hide();
