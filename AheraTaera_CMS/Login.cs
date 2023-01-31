@@ -6,8 +6,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using MySql.Data;
-using MySql.Data.MySqlClient;
+//using MySql.Data;
+//using MySql.Data.MySqlClient;
 
 
 
@@ -16,56 +16,68 @@ namespace AheraTaera_CMS
     public partial class Login : Form
     {
         private string customerID;
+        private Business.Singleton DBReader;
         public Login()
         {
             InitializeComponent();
+            DBReader = Business.Singleton.GetInstance;
         }
 
         private void loginBotton_Click(object sender, EventArgs e)
         {
 
-            string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
-            string sql = "SELECT CustomerID, FName, LName, Email, Password FROM customers WHERE Email='" + userTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'";
+            RegCustomer reg_customer = new RegCustomer();
 
-            try
-            {
-                MySqlConnection con = new MySqlConnection(connectionString);
-                con.Open();
+            if (reg_customer.Login(userTextBox.Text, passwordTextBox.Text)) { 
+                  this.Hide();
 
-                MySqlCommand cmd = new MySqlCommand(sql, con);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                if (rdr.HasRows)
-                {
-                    rdr.Read();
-                    customerID = rdr[0].ToString();
-                    string username = rdr[1].ToString() + " " + rdr[2].ToString();
-
-                    this.Hide();
-
-                    Home form = new Home(customerID, username);
-                    form.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Wrong Username and/or Password!");
-                }
-
-                rdr.Close();
-                con.Close();
+                  string username = reg_customer.FName + " " + reg_customer.LName;
+                  Home form = new Home(customerID, username);
+                  form.Show();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("error:\n" + ex.ToString());
+                MessageBox.Show("Wrong Username and/or Password!");
             }
 
+            DBReader.SQLReaderClose();
         }
+        /*
+                private void loginBotton_Click(object sender, EventArgs e)
+                {
 
+                    RegCustomer reg_customer = new RegCustomer();
+                    reg_customer.Login(userTextBox.Text, passwordTextBox.Text);
+
+                   // string sql = "SELECT CustomerID, FName, LName, Email, Password FROM customers WHERE Email='" + userTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'";
+                    String sql = String.Format("SELECT CustomerID, FName, LName, Email, Password FROM customers WHERE Email='{0}' AND Password='{1}'", userTextBox.Text, passwordTextBox.Text);
+
+                    MySqlDataReader rdr = DBReader.SQLReaderOpen(sql);
+
+                    if (rdr.HasRows)
+                    {
+                        rdr.Read();
+                        customerID = rdr[0].ToString();
+                        string username = rdr[1].ToString() + " " + rdr[2].ToString();
+
+                        this.Hide();
+
+                        Home form = new Home(customerID, username);
+                        form.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong Username and/or Password!");
+                    }
+
+                    DBReader.SQLReaderClose();
+                }
+        */
         private void profileButton_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            CreateProfile form = new CreateProfile();
+            Register form = new Register();
             form.Show();
         }
 

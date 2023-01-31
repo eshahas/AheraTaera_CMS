@@ -12,23 +12,17 @@ namespace AheraTaera_CMS
     class ProductList
     {
         private List<Business.Product> productList = new List<Business.Product>();
-
+        public Business.Singleton DBReader;
 
         public ProductList()
         {
 
-            string sql = "SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products";
+            DBReader = Business.Singleton.GetInstance;
 
-            string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
+        //    string sql = "SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products";
+            String sql = String.Format("SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products");
 
-
-            try
-            {
-                MySqlConnection con = new MySqlConnection(connectionString);
-                con.Open();
-
-                MySqlCommand cmd = new MySqlCommand(sql, con);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+            MySqlDataReader rdr = DBReader.SQLReaderOpen(sql);
 
                 while (rdr.Read())
                 {
@@ -39,17 +33,10 @@ namespace AheraTaera_CMS
                         ProductDescription = rdr.GetString("ProductDescription"),
                         unitPrice = rdr.GetString("Price"),
                         ProductCategory = rdr.GetString("ProductCategory")
-                    }); ;
+                    });
                 }
-                rdr.Close();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
 
-                MessageBox.Show(ex.ToString());
-
-            }
+            DBReader.SQLReaderClose();
         }
 
         public List<Business.Product> getProductList()

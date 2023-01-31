@@ -1,7 +1,7 @@
 ﻿
 namespace AheraTaera_CMS
 {
-    partial class CreateProfile
+    partial class Register
     {
         /// <summary>
         /// Required designer variable.
@@ -246,7 +246,7 @@ namespace AheraTaera_CMS
             this.DoBMaskedBox.TabIndex = 23;
             this.DoBMaskedBox.ValidatingType = typeof(System.DateTime);
             // 
-            // CreateProfile
+            // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -273,7 +273,7 @@ namespace AheraTaera_CMS
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CreateProfile";
+            this.Name = "Register";
             this.Text = "CreateProfile";
             this.Load += new System.EventHandler(this.CreateProfile_Load);
             this.ResumeLayout(false);

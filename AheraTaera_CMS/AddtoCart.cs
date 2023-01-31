@@ -16,7 +16,7 @@ namespace AheraTaera_CMS
         private string productID;
         public static int Qty;
         private string productName;
-
+        private Business.Singleton DBReader;
 
         public static List<ProductItem> shoppingList = new List<ProductItem>();
  //       public static List<string[]> shoppingList = new List<string[]>();
@@ -24,19 +24,13 @@ namespace AheraTaera_CMS
         {
             InitializeComponent();
             productID = product;
-//            MessageBox.Show(productID);
-            string connectionString = "Data Source=localhost;Initial Catalog=aherataera_cms;User ID=root;Password='1234567'";
-            string sql = "SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products WHERE ProductID='" + productID + "'";
 
-//                      MessageBox.Show(sql);
+            DBReader = Business.Singleton.GetInstance;
 
-            try
-            {
-                MySqlConnection con = new MySqlConnection(connectionString);
-                con.Open();
+//            string sql = "SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products WHERE ProductID='" + productID + "'";
+            String sql = String.Format("SELECT ProductID, ProductName, ProductDescription, Price, ProductCategory FROM products WHERE ProductID='{0}'", productID);
 
-                MySqlCommand cmd = new MySqlCommand(sql, con);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+            MySqlDataReader rdr = DBReader.SQLReaderOpen(sql);
 
                 if (rdr.HasRows)
                 {
@@ -55,14 +49,7 @@ namespace AheraTaera_CMS
                     MessageBox.Show("Empty Record!");
                 }
 
-                rdr.Close();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("error:\n" + ex.ToString());
-            }
-
+            DBReader.SQLReaderClose();
         }
 
 
