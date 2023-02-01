@@ -1,4 +1,5 @@
 ﻿
+using AheraTaera_CMS.UserValidation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,15 +23,19 @@ namespace AheraTaera_CMS
             DBReader = Business.Singleton.GetInstance;
         }
 
+
         private void loginBotton_Click(object sender, EventArgs e)
         {
-            RegCustomer reg_customer = new RegCustomer();
 
-            if (reg_customer.Login(userTextBox.Text, passwordTextBox.Text)) { 
-                  this.Hide();
-                  
-                  Home form = new Home(reg_customer.CustomerID, reg_customer.FName + " " + reg_customer.LName);
-                  form.Show();
+            iCustomers reg_customer = new RegisteredCustomerFactory().CreateProduct(null, null, null, null, null, null, null, null, null, passwordTextBox.Text, userTextBox.Text); 
+
+            if (reg_customer.Login()) 
+            {
+                this.Hide();
+
+//                Home form = new Home(reg_customer.CustomerID, reg_customer.FName + " " + reg_customer.LName);
+                Home form = new Home(null, userTextBox.Text);
+                form.Show();
             }
             else
             {
@@ -39,7 +44,25 @@ namespace AheraTaera_CMS
 
             DBReader.SQLReaderClose();
         }
+        /*
+              private void loginBotton_Click(object sender, EventArgs e)
+              {
+                  RegCustomer reg_customer = new RegCustomer();
 
+                  if (reg_customer.Login(userTextBox.Text, passwordTextBox.Text)) { 
+                        this.Hide();
+
+                        Home form = new Home(reg_customer.CustomerID, reg_customer.FName + " " + reg_customer.LName);
+                        form.Show();
+                  }
+                  else
+                  {
+                      MessageBox.Show("Wrong Username and/or Password!");
+                  }
+
+                  DBReader.SQLReaderClose();
+              }
+       */
         private void profileButton_Click(object sender, EventArgs e)
         {
             this.Hide();

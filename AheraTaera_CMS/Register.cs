@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AheraTaera_CMS.UserValidation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,8 +25,7 @@ namespace AheraTaera_CMS
 
         }
 
-
-       private void createProfileButton_Click(object sender, EventArgs e)
+        private void createProfileButton_Click(object sender, EventArgs e)
 
         {
             string CustomerID = "1";
@@ -34,9 +34,8 @@ namespace AheraTaera_CMS
             if (PasswordTextBox.Text == RePasswordTextBox.Text)
             {
 
-                newCustomer new_customer = new newCustomer();
-
-                if (new_customer.Register(CustomerID,
+                iCustomers reg_customer = new newCustomerFactory().CreateProduct( 
+                                             CustomerID,
                                              FNameTextBox.Text,
                                              LNameTextBox.Text,
                                              DoBMaskedBox.Text,
@@ -45,8 +44,10 @@ namespace AheraTaera_CMS
                                              AddLine1TextBox.Text,
                                              AddLine2TextBox.Text,
                                              CityTextBox.Text,
-                                             PasswordTextBox.Text))
+                                             PasswordTextBox.Text, 
+                                             null);
 
+                if (reg_customer.Register())
                 {
                     MessageBox.Show("Congradulations, Account created succsessfully...");
 
@@ -62,6 +63,44 @@ namespace AheraTaera_CMS
             }
         }
 
+        /*
+               private void createProfileButton_Click(object sender, EventArgs e)
+
+                {
+                    string CustomerID = "1";
+                    int i = 1;
+
+                    if (PasswordTextBox.Text == RePasswordTextBox.Text)
+                    {
+
+                        newCustomer new_customer = new newCustomer();
+
+                        if (new_customer.Register(CustomerID,
+                                                     FNameTextBox.Text,
+                                                     LNameTextBox.Text,
+                                                     DoBMaskedBox.Text,
+                                                     PhoneMaskedBox.Text,
+                                                     EmailTextBox.Text,
+                                                     AddLine1TextBox.Text,
+                                                     AddLine2TextBox.Text,
+                                                     CityTextBox.Text,
+                                                     PasswordTextBox.Text))
+
+                        {
+                            MessageBox.Show("Congradulations, Account created succsessfully...");
+
+                            this.Hide();
+                            Login form = new Login();
+                            form.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Try again, Passwords do not match");
+                        }
+
+                    }
+                }
+        */
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
