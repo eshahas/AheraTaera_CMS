@@ -6,7 +6,7 @@ namespace AheraTaera_CMS.UserValidation
 {
     public abstract class CustomerFactory
     {
-        protected abstract iCustomers MakeProduct(
+        protected abstract iCustomers MakeCustomer(
                     string CustomerID,
                        string FName,
                        string LName,
@@ -18,7 +18,7 @@ namespace AheraTaera_CMS.UserValidation
                        string City,
                        string Password,
                        string username);
-        public iCustomers CreateProduct(
+        public iCustomers CreateCustomer(
                     string CustomerID,
                        string FName,
                        string LName,
@@ -31,7 +31,7 @@ namespace AheraTaera_CMS.UserValidation
                        string Password,
                        string username)
         {
-            return this.MakeProduct(
+            return this.MakeCustomer(
                        CustomerID,
                        FName,
                        LName,

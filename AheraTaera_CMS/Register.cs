@@ -34,7 +34,7 @@ namespace AheraTaera_CMS
             if (PasswordTextBox.Text == RePasswordTextBox.Text)
             {
 
-                iCustomers reg_customer = new newCustomerFactory().CreateProduct( 
+                iCustomers reg_customer = new newCustomerFactory().CreateCustomer( 
                                              CustomerID,
                                              FNameTextBox.Text,
                                              LNameTextBox.Text,

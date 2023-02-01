@@ -7,7 +7,7 @@ namespace AheraTaera_CMS.UserValidation
 
     public class newCustomerFactory : CustomerFactory
     {
-        protected override iCustomers MakeProduct(
+        protected override iCustomers MakeCustomer(
                     string CustomerID,
                        string FName,
                        string LName,

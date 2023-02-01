@@ -27,7 +27,7 @@ namespace AheraTaera_CMS
         private void loginBotton_Click(object sender, EventArgs e)
         {
 
-            iCustomers reg_customer = new RegisteredCustomerFactory().CreateProduct(null, null, null, null, null, null, null, null, null, passwordTextBox.Text, userTextBox.Text); 
+            iCustomers reg_customer = new RegisteredCustomerFactory().CreateCustomer(null, null, null, null, null, null, null, null, null, passwordTextBox.Text, userTextBox.Text); 
 
             if (reg_customer.Login()) 
             {
