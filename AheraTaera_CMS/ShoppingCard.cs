@@ -13,12 +13,14 @@ namespace AheraTaera_CMS
         private string username;
         private string customer;
         private float totalprice;
+        private string ID;
 
         public ShoppingCard(string customerID, string user, string product, int qty)
         {
             InitializeComponent();
             customer = customerID;
             username = user;
+            ID = customerID;
 
             dataGridView1.DataSource =  AddtoCart.shoppingList;
 
@@ -29,7 +31,7 @@ namespace AheraTaera_CMS
         {
             this.Hide();
 
-            Checkout form = new Checkout(username, totalprice);
+            Checkout form = new Checkout(ID,username, totalprice);
             form.Show();
         }
 

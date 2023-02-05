@@ -8,7 +8,7 @@ namespace TestProject
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod1_Age70_Auckland_WeekendDelivery()
         {
             Discount bm = new Discount();
             int age = 70;
@@ -20,7 +20,7 @@ namespace TestProject
         }
         
         [TestMethod]
-        public void TestMethod2()
+        public void TestMethod2_Age25_Christchurch()
         {
             Discount bm = new Discount();
             int age = 25;
@@ -32,15 +32,35 @@ namespace TestProject
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void TestMethod3_Age78_Hamiton()
         {
             Discount bm = new Discount();
             int age = 78;
-            string city = "Christchurch";
+            string city = "Hamilton";
             bool weekenddelivery = false;
 
             int res = bm.GetDiscount(age, city, weekenddelivery);
             Assert.AreEqual(10, res);
+        }
+
+        [TestMethod]
+        public void TestMethod4_HomeDelivery()
+        {
+            Discount bm = new Discount();
+            bool homedelivery = true;
+
+            float res = bm.GetShipmentCharge(homedelivery);
+            Assert.AreEqual(10.0, res);
+        }
+
+        [TestMethod]
+        public void TestMethod5_ShopDelivery()
+        {
+            Discount bm = new Discount();
+            bool homedelivery = false;
+
+            float res = bm.GetShipmentCharge(homedelivery);
+            Assert.AreEqual(0.0, res);
         }
     }
 }

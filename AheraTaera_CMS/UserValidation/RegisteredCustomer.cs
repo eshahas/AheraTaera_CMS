@@ -23,7 +23,7 @@ namespace AheraTaera_CMS.UserValidation
 
         public string username;
 
-        public bool Login() 
+        public string Login() 
         {
 
             Business.Singleton DBReader = Business.Singleton.GetInstance;
@@ -52,7 +52,7 @@ namespace AheraTaera_CMS.UserValidation
 
             DBReader.SQLReaderClose();
 
-            return true;
+            return CustomerID; // true;
         }
 
         public bool Register()

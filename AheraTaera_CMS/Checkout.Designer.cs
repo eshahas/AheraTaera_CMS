@@ -50,6 +50,8 @@ namespace AheraTaera_CMS
             this.HomeDeliveryCheckBox = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ShipmentCostLabel = new System.Windows.Forms.Label();
+            this.PaymentVisa = new System.Windows.Forms.RadioButton();
+            this.PaymentMastercard = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,11 +264,37 @@ namespace AheraTaera_CMS
             this.ShipmentCostLabel.TabIndex = 20;
             this.ShipmentCostLabel.Text = "0.0";
             // 
+            // PaymentVisa
+            // 
+            this.PaymentVisa.AutoSize = true;
+            this.PaymentVisa.Checked = true;
+            this.PaymentVisa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PaymentVisa.Location = new System.Drawing.Point(509, 497);
+            this.PaymentVisa.Name = "PaymentVisa";
+            this.PaymentVisa.Size = new System.Drawing.Size(76, 32);
+            this.PaymentVisa.TabIndex = 21;
+            this.PaymentVisa.TabStop = true;
+            this.PaymentVisa.Text = "Visa";
+            this.PaymentVisa.UseVisualStyleBackColor = true;
+            // 
+            // PaymentMastercard
+            // 
+            this.PaymentMastercard.AutoSize = true;
+            this.PaymentMastercard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PaymentMastercard.Location = new System.Drawing.Point(509, 532);
+            this.PaymentMastercard.Name = "PaymentMastercard";
+            this.PaymentMastercard.Size = new System.Drawing.Size(144, 32);
+            this.PaymentMastercard.TabIndex = 22;
+            this.PaymentMastercard.Text = "Mastercard";
+            this.PaymentMastercard.UseVisualStyleBackColor = true;
+            // 
             // Checkout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 688);
+            this.Controls.Add(this.PaymentMastercard);
+            this.Controls.Add(this.PaymentVisa);
             this.Controls.Add(this.ShipmentCostLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.HomeDeliveryCheckBox);
@@ -317,5 +345,7 @@ namespace AheraTaera_CMS
         private System.Windows.Forms.CheckBox HomeDeliveryCheckBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label ShipmentCostLabel;
+        private System.Windows.Forms.RadioButton PaymentVisa;
+        private System.Windows.Forms.RadioButton PaymentMastercard;
     }
 }

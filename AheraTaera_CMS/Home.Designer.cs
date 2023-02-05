@@ -35,7 +35,6 @@ namespace AheraTaera_CMS
             this.AddtoCartButton = new System.Windows.Forms.Button();
             this.ShoppingCardButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.DashboardButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -85,7 +84,7 @@ namespace AheraTaera_CMS
             this.ShoppingCardButton.Name = "ShoppingCardButton";
             this.ShoppingCardButton.Size = new System.Drawing.Size(235, 53);
             this.ShoppingCardButton.TabIndex = 6;
-            this.ShoppingCardButton.Text = "SHopping Card";
+            this.ShoppingCardButton.Text = "Shopping Card";
             this.ShoppingCardButton.UseVisualStyleBackColor = false;
             this.ShoppingCardButton.Click += new System.EventHandler(this.ShoppingCardButton_Click);
             // 
@@ -98,18 +97,6 @@ namespace AheraTaera_CMS
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // DashboardButton
-            // 
-            this.DashboardButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DashboardButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.DashboardButton.Location = new System.Drawing.Point(26, 558);
-            this.DashboardButton.Name = "DashboardButton";
-            this.DashboardButton.Size = new System.Drawing.Size(224, 56);
-            this.DashboardButton.TabIndex = 8;
-            this.DashboardButton.Text = "Dashboard";
-            this.DashboardButton.UseVisualStyleBackColor = true;
-            this.DashboardButton.Click += new System.EventHandler(this.DashboardButton_Click);
             // 
             // dataGridView1
             // 
@@ -129,7 +116,6 @@ namespace AheraTaera_CMS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 819);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.DashboardButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ShoppingCardButton);
             this.Controls.Add(this.AddtoCartButton);
@@ -151,7 +137,6 @@ namespace AheraTaera_CMS
         private System.Windows.Forms.Button AddtoCartButton;
         private System.Windows.Forms.Button ShoppingCardButton;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button DashboardButton;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
