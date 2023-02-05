@@ -21,9 +21,9 @@ namespace AheraTaera_CMS.UserValidation
         public string City;
         public string Password;
 
-        public bool Login()  
+        public string Login()  
         {
-            return false;
+            return null;
         }
 
         public bool Register()

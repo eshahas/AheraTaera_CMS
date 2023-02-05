@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AheraTaera_CMS.ProductCategory;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,9 @@ namespace AheraTaera_CMS
 
             username = loginName;
             customerID = customer;
+
+            iProduct product = new SouvenirsFactory().CreateProduct();
+            product.GetProductType();
 
             dataGridView1.DataSource = new ProductList().getProductList();
 
@@ -65,13 +69,6 @@ namespace AheraTaera_CMS
             this.Hide();
 
             ShoppingCard form = new ShoppingCard(customerID, username, product, AddtoCart.Qty);
-            form.Show();
-        }
-
-        private void DashboardButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Dashboard form = new Dashboard(customerID, username);
             form.Show();
         }
     }

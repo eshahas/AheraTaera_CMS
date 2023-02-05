@@ -6,7 +6,7 @@ namespace AheraTaera_CMS.UserValidation
 {
     public interface iCustomers
     {
-        bool Login(); 
+        string Login(); 
         bool Register(); 
 
         void setparam(string CustomerID,
