@@ -43,10 +43,10 @@ namespace AheraTaera_CMS
             this.AdminProductButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.AdminProductButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AdminProductButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AdminProductButton.Location = new System.Drawing.Point(507, 182);
-            this.AdminProductButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AdminProductButton.Location = new System.Drawing.Point(537, 220);
+            this.AdminProductButton.Margin = new System.Windows.Forms.Padding(4);
             this.AdminProductButton.Name = "AdminProductButton";
-            this.AdminProductButton.Size = new System.Drawing.Size(430, 97);
+            this.AdminProductButton.Size = new System.Drawing.Size(347, 75);
             this.AdminProductButton.TabIndex = 0;
             this.AdminProductButton.Text = "Manage Product List";
             this.AdminProductButton.UseVisualStyleBackColor = false;
@@ -57,10 +57,10 @@ namespace AheraTaera_CMS
             this.AdminPaymentButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.AdminPaymentButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AdminPaymentButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AdminPaymentButton.Location = new System.Drawing.Point(507, 298);
-            this.AdminPaymentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AdminPaymentButton.Location = new System.Drawing.Point(537, 326);
+            this.AdminPaymentButton.Margin = new System.Windows.Forms.Padding(4);
             this.AdminPaymentButton.Name = "AdminPaymentButton";
-            this.AdminPaymentButton.Size = new System.Drawing.Size(430, 104);
+            this.AdminPaymentButton.Size = new System.Drawing.Size(347, 76);
             this.AdminPaymentButton.TabIndex = 1;
             this.AdminPaymentButton.Text = "Manage Payment Records";
             this.AdminPaymentButton.UseVisualStyleBackColor = false;
@@ -69,8 +69,9 @@ namespace AheraTaera_CMS
             // BackButton
             // 
             this.BackButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BackButton.Location = new System.Drawing.Point(774, 448);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BackButton.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.BackButton.Location = new System.Drawing.Point(724, 448);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(4);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(153, 52);
             this.BackButton.TabIndex = 2;
@@ -92,7 +93,7 @@ namespace AheraTaera_CMS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.85714F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(599, 65);
+            this.label1.Location = new System.Drawing.Point(587, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(255, 50);
             this.label1.TabIndex = 4;
@@ -108,7 +109,8 @@ namespace AheraTaera_CMS
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AdminPaymentButton);
             this.Controls.Add(this.AdminProductButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
