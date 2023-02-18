@@ -75,5 +75,10 @@ namespace AheraTaera_CMS
                 MessageBox.Show("Please select an order in the list to update!");
             }
         }
+
+        private void AdminOrder_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
