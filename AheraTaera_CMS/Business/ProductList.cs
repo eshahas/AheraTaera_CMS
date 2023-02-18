@@ -60,10 +60,40 @@ namespace AheraTaera_CMS
 
             string sql = String.Format("UPDATE products SET ProductName = '{0}', ProductDescription = '{1}', Price = {2} , ProductCategory = '{3}' WHERE ProductID = {4}", product.ProductName, product.ProductDescription, (float)Convert.ToDouble(product.unitPrice), product.ProductCategory, Int32.Parse(product.ProductID)); // );
 
-//            MessageBox.Show(product.ProductID + " " + product.ProductName + " " + product.ProductDescription + " " + product.ProductCategory);
-//            MessageBox.Show(sql);
             if (DBReader.SQLQuery(sql) == -1) return false; ;
+            return true;
+        }
+
+        public bool CreateProduct(Business.Product product)
+        {
+            int i = 1;
+
+            Business.Singleton DBReader = Business.Singleton.GetInstance;
+
+            string sql = "SELECT MAX(ProductID) FROM products"; // "SELECT COUNT(*) FROM products";
+            MySqlDataReader rdr = DBReader.SQLReaderOpen(sql);
+
+            if (rdr.HasRows)
+            {
+                rdr.Read();
+                i = Int32.Parse(rdr[0].ToString()) + 1;
+            }
+
+            DBReader.SQLReaderClose();
+
+            product.ProductID = i.ToString();
+
+            sql = String.Format("INSERT INTO products VALUES('{0}','{1}','{2}','{3}','{4}')",
+                                        product.ProductID,
+                                        product.ProductName,
+                                        product.ProductDescription, 
+                                        product.unitPrice, 
+                                        product.ProductCategory);
+
+            if (DBReader.SQLQuery(sql) == -1) return false;
+
             return true;
         }
     }        
 }
+

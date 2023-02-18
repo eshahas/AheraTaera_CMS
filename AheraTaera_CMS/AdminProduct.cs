@@ -32,7 +32,10 @@ namespace AheraTaera_CMS
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
 
+            NewProduct form = new NewProduct();
+            form.Show();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
