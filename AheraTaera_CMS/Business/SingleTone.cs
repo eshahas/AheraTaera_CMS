@@ -67,7 +67,9 @@ namespace AheraTaera_CMS.Business
             {
                 MessageBox.Show("error:\n" + ex.ToString()); 
             }
-            
+
+            SQLReaderClose(); /*17.02*/
+
             return returnVal;
        }
 

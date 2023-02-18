@@ -6,53 +6,37 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 
 
+
 namespace AheraTaera_CMS.UserValidation
 {
-    public class RegisteredCustomer : iCustomers
+    public class Staff : iCustomers
     {
-        public string CustomerID;
-        public string FName;
-        public string LName;
-        public string DoB;
-        public string Phone;
-        public string Email;
-        public string AddLine1;
-        public string AddLine2;
-        public string City;
+        public string StaffID = null;
         public string Password;
 
         public string username;
-
-        public string Login() 
+        public string Login()
         {
 
             Business.Singleton DBReader = Business.Singleton.GetInstance;
-            String sql = String.Format("SELECT * FROM customers WHERE Email='{0}' AND Password='{1}'", username, Password);
+            String sql = String.Format("SELECT Email, Password, Role FROM staff WHERE Email='{0}' AND Password='{1}'", username, Password);
 
             MySqlDataReader rdr = DBReader.SQLReaderOpen(sql);
 
             if (rdr.HasRows)
             {
                 rdr.Read();
-                CustomerID = rdr[0].ToString();
-                FName = rdr[1].ToString();
-                LName = rdr[2].ToString();
-                DoB = rdr[3].ToString();
-                Phone = rdr[4].ToString();
-                Email = rdr[5].ToString();
-                AddLine1 = rdr[6].ToString();
-                AddLine2 = rdr[7].ToString();
-                City = rdr[8].ToString();
-                Password = rdr[9].ToString();
+                StaffID = rdr[2].ToString();
             }
+/*          
             else
             {
-                CustomerID = null; // MessageBox.Show("Wrong Username and/or Password!");
+                MessageBox.Show("Wrong Username and/or Password!");
             }
-
+*/
             DBReader.SQLReaderClose();
 
-            return CustomerID; // true;
+            return StaffID;
         }
 
         public bool Register()
@@ -60,7 +44,7 @@ namespace AheraTaera_CMS.UserValidation
             return false;
         }
 
-        public  void setparam(string CustomerID,
+        public void setparam(string CustomerID,
                       string FName,
                       string LName,
                       string DoB,
@@ -77,3 +61,4 @@ namespace AheraTaera_CMS.UserValidation
         }
     }
 }
+

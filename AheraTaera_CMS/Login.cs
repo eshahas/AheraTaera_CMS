@@ -27,24 +27,37 @@ namespace AheraTaera_CMS
         private void loginBotton_Click(object sender, EventArgs e)
         {
 
-            iCustomers reg_customer = new RegisteredCustomerFactory().CreateCustomer(null, null, null, null, null, null, null, null, null, passwordTextBox.Text, userTextBox.Text);
-
-            string ID = reg_customer.Login();
-            if (ID != null) 
+            iCustomers staff = new StaffFactory().CreateCustomer(null, null, null, null, null, null, null, null, null, passwordTextBox.Text, userTextBox.Text);
+            string StaffRole = staff.Login();
+            if (StaffRole == "A")
             {
-                this.Hide();  
+                this.Hide();
 
-//                Home form = new Home(reg_customer.CustomerID, reg_customer.FName + " " + reg_customer.LName);
-                Home form = new Home(ID, userTextBox.Text);
+                AdminDashboard form = new AdminDashboard();
                 form.Show();
             }
             else
             {
-                MessageBox.Show("Wrong Username and/or Password!");
-            }
+                iCustomers reg_customer = new RegisteredCustomerFactory().CreateCustomer(null, null, null, null, null, null, null, null, null, passwordTextBox.Text, userTextBox.Text);
 
+                string ID = reg_customer.Login();
+                if (ID != null)
+                {
+                    this.Hide();
+
+                    //                Home form = new Home(reg_customer.CustomerID, reg_customer.FName + " " + reg_customer.LName);
+                    Home form = new Home(ID, userTextBox.Text);
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Username and/or Password!");
+                }
+            }
             DBReader.SQLReaderClose();
         }
+
+
         /*
               private void loginBotton_Click(object sender, EventArgs e)
               {
@@ -77,5 +90,12 @@ namespace AheraTaera_CMS
             Application.Exit();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            AdminDashboard form = new AdminDashboard();
+            form.Show();
+        }
     }
 }
