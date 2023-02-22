@@ -75,9 +75,9 @@ namespace AheraTaera_CMS
                         
                         unitPrice = PriceLabel.Text,
                         ProductQty = ProductQtyTextBox.Text
-                    }); 
+                    });
 
-
+                    Home.Qty_in_Shoppingcard++;
                     this.Hide();
             }
              else

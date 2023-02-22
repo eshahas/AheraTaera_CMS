@@ -21,11 +21,13 @@ namespace AheraTaera_CMS
         private double discountvalue;
         public string CustomerID;
         private int OrderNo;
+        private string username;
         public Checkout(string ID, string user, float value)
         {
             InitializeComponent();
 
             CustomerID = ID;
+            username = user;
 
             price = value;
 
@@ -47,7 +49,12 @@ namespace AheraTaera_CMS
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            this.Hide();
+
+            Home form = new Home(CustomerID, username);
+            form.Show();
+
         }
 
         private void Order_DBUpdate()

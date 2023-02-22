@@ -15,6 +15,8 @@ namespace AheraTaera_CMS
         private string product;
         private string customerID;
 
+        public static int Qty_in_Shoppingcard = 0;
+
         public Home(string customer, string loginName)
         {
             InitializeComponent();
@@ -51,7 +53,7 @@ namespace AheraTaera_CMS
             }
             else
             {
-                MessageBox.Show("Please select an employee in the list to see his/her details!");
+                MessageBox.Show("Please select a product in the list to see his/her details!");
             }
 
         }
@@ -66,10 +68,14 @@ namespace AheraTaera_CMS
 
         private void ShoppingCardButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            if (Qty_in_Shoppingcard > 0)
+            {
+                this.Hide();
 
-            ShoppingCard form = new ShoppingCard(customerID, username, product, AddtoCart.Qty);
-            form.Show();
+                ShoppingCard form = new ShoppingCard(customerID, username, product, AddtoCart.Qty);
+                form.Show();
+            }
+             else MessageBox.Show("There should be at least one product in the shopping card...");
         }
     }
 }

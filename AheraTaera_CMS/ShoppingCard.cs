@@ -85,6 +85,8 @@ namespace AheraTaera_CMS
                  dataGridView1.DataSource = AddtoCart.shoppingList;
 
                  totalPriceUpdate();
+
+                Home.Qty_in_Shoppingcard--;
             }
             else
             {

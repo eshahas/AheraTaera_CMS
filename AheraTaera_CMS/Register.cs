@@ -25,41 +25,89 @@ namespace AheraTaera_CMS
 
         }
 
+        private bool emptyValidate()
+        {
+
+            foreach (Control c1 in this.Controls)
+
+            {
+
+                if (c1 is TextBox)
+
+                {
+
+                    if (c1.Text == "")
+
+                    {
+                        c1.BackColor = Color.Orange;
+
+                        c1.Focus();
+                        MessageBox.Show("Field cannnot be blank");
+
+                        return true;
+
+                    }
+                    else
+
+                    {
+
+                       // MessageBox.Show("Correct");
+
+                        c1.BackColor = Color.White;
+
+                    }
+
+                }
+
+            }
+
+         //   clear();
+            return false;
+        }
         private void createProfileButton_Click(object sender, EventArgs e)
 
         {
             string CustomerID = "1";
             int i = 1;
 
-            if (PasswordTextBox.Text == RePasswordTextBox.Text)
+            if (!emptyValidate())
             {
 
-                iCustomers reg_customer = new newCustomerFactory().CreateCustomer( 
-                                             CustomerID,
-                                             FNameTextBox.Text,
-                                             LNameTextBox.Text,
-                                             DoBMaskedBox.Text,
-                                             PhoneMaskedBox.Text,
-                                             EmailTextBox.Text,
-                                             AddLine1TextBox.Text,
-                                             AddLine2TextBox.Text,
-                                             CityTextBox.Text,
-                                             PasswordTextBox.Text, 
-                                             null);
-
-                if (reg_customer.Register())
+                if (PasswordTextBox.Text == RePasswordTextBox.Text)
                 {
-                    MessageBox.Show("Congradulations, Account created succsessfully...");
 
-                    this.Hide();
-                    Login form = new Login();
-                    form.Show();
+                    iCustomers reg_customer = new newCustomerFactory().CreateCustomer(
+                                                 CustomerID,
+                                                 FNameTextBox.Text,
+                                                 LNameTextBox.Text,
+                                                 DoBMaskedBox.Text,
+                                                 PhoneMaskedBox.Text,
+                                                 EmailTextBox.Text,
+                                                 AddLine1TextBox.Text,
+                                                 AddLine2TextBox.Text,
+                                                 CityTextBox.Text,
+                                                 PasswordTextBox.Text,
+                                                 null);
+
+                    if (reg_customer.Register())
+                    {
+                        MessageBox.Show("Congradulations, Account created succsessfully...");
+
+                        this.Hide();
+                        Login form = new Login();
+                        form.Show();
+                    }
+/*
+                    else
+                    {
+                        MessageBox.Show("Try again, Passwords do not match");
+                    }
+*/
                 }
                 else
                 {
                     MessageBox.Show("Try again, Passwords do not match");
                 }
-
             }
         }
 
